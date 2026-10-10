@@ -1,4 +1,4 @@
-package example;
+package collection_framework;
 
 // // 1. Base Class
 // class Animal {

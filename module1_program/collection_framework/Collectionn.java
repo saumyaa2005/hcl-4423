@@ -1,4 +1,4 @@
-package example;
+package collection_framework;
 
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
