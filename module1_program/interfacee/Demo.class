@@ -1,0 +1,16 @@
+// Source code is decompiled from a .class file using FernFlower decompiler (from Intellij IDEA).
+package coreJavaFoundation;
+
+public class Demo {
+   public Demo() {
+   }
+
+   public static void main(String[] var0) {
+      System.out.println("hello");
+
+      for(int var1 = 0; var1 < 10; ++var1) {
+         System.out.println("Hi");
+      }
+
+   }
+}
