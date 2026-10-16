@@ -26,7 +26,7 @@ public class switchh {
             case 7:
                 dayName = "Sunday";
                 break;
-            default:
+            default: 
                 dayName = "Invalid Day! Please enter a number between 1 and 7.";
                 break;
         }
