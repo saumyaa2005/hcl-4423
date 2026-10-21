@@ -1,6 +1,8 @@
 public class Oct16th {
     // 1. Static variable
     private static Oct16th obj;
+    //or
+    // static final Oct16th obj= new Oct16th();
 
     // 2. Private constructor
     private Oct16th() {
