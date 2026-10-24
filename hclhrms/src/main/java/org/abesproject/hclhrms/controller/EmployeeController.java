@@ -3,10 +3,7 @@ package org.abesproject.hclhrms.controller;
 import org.abesproject.hclhrms.EmpServiceImp;
 import org.abesproject.hclhrms.entity.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -26,12 +23,12 @@ public class EmployeeController {
         return empServiceImp.addEmp();
     }
 
-    @GetMapping("/getEmp")
+    @GetMapping({ "/getEmp", "/getAllEmp" })
     public List<Employee> getEmp() {
         return empServiceImp.getEmp();
     }
 
-    @GetMapping("/addBulk")
+    @GetMapping({ "/addBulk", "/addEmpBulk" })
     public String addEmpBulk() {
         return empServiceImp.addEmpBulk();
     }
@@ -44,5 +41,23 @@ public class EmployeeController {
     @GetMapping("/getEmpById/{id}")
     public Employee getEmpByIdPath(@PathVariable long id) {
         return empServiceImp.getEmpById(id);
+    }
+    @RequestMapping(value = "/deleteById", method = { RequestMethod.DELETE, RequestMethod.GET })
+    public String deleteById(@RequestParam(name = "emp_id", required = false, defaultValue = "1001") long emp_id) {
+        return empServiceImp.deleteById(emp_id);
+    }
+
+    @RequestMapping(value = "/deleteById/{id}", method = { RequestMethod.DELETE, RequestMethod.GET })
+    public String deleteByIdPath(@PathVariable long id) {
+        return empServiceImp.deleteById(id);
+    }
+    @GetMapping("/updatedById")
+    public String updatedById(@RequestParam(name = "emp_id", required = false, defaultValue = "1001") long emp_id){
+        return empServiceImp.updatedById(emp_id);
+    }
+
+    @GetMapping("/updatedById/{id}")
+    public String updatedByIdPath(@PathVariable long id){
+        return empServiceImp.updatedById(id);
     }
 }
