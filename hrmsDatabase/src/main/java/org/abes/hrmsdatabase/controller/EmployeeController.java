@@ -2,13 +2,11 @@ package org.abes.hrmsdatabase.controller;
 
 import org.abes.hrmsdatabase.model.Employee;
 import org.abes.hrmsdatabase.service.EmployeeService;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
+@CrossOrigin("http://localhost:5173/")
+@RequestMapping("/v1/user/")
 public class EmployeeController {
     private final EmployeeService employeeService;
 
@@ -21,9 +19,9 @@ public class EmployeeController {
         return "program run sccessfulyy";
     }
 
-    @GetMapping("/addemp")
-    public String addNemlpoyee() {
-        return employeeService.creatNewEmployee();
+    @PostMapping("/addemp")
+    public String addNemlpoyee(@RequestBody Employee emp) {
+        return employeeService.creatNewEmployee(emp);
     }
 
     @GetMapping({ "/findById/{emp_id}", "/findyId/{emp_id}", "/{emp_id}" })

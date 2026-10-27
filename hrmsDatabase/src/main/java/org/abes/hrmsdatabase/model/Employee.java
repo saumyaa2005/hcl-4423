@@ -1,3 +1,4 @@
+
 package org.abes.hrmsdatabase.model;
 
 import jakarta.persistence.Entity;
@@ -5,10 +6,15 @@ import jakarta.persistence.Id;
 
 @Entity
 public class Employee {
+
     @Id
     private long emp_id;
 
-    public Employee(){
+    // New fields added according to Registration form
+    private String email;
+    private String password;
+
+    public Employee() {
 
     }
 
@@ -44,6 +50,24 @@ public class Employee {
         this.designation = designation;
     }
 
+    // New getters and setters
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    // Existing constructor preserved
     public Employee(long emp_id, String emp_name, String stack, String designation) {
         this.emp_id = emp_id;
         this.emp_name = emp_name;

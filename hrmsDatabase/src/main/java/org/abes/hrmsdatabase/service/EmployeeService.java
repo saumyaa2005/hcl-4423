@@ -10,9 +10,9 @@ public class EmployeeService {
     @Autowired
     private EmployeeRepository employeeRepository;
 
-    public String creatNewEmployee() {
-        Employee emp1 = new Employee(101, "Saumya", "Java", "Manager");
-        employeeRepository.save(emp1);
+    public String creatNewEmployee(Employee newemp) {
+//        Employee emp1 = new Employee(101, "Saumya", "Java", "Manager");
+        employeeRepository.save(newemp);
         return "Employee is added successfully!!";
     }
 
