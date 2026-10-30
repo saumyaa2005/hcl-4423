@@ -1,11 +1,9 @@
 package com.hcld2.jwtdemo.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.CollectionId;
 
 import java.time.LocalDateTime;
 
@@ -13,17 +11,21 @@ import java.time.LocalDateTime;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Post{
+public class Post {
     @Id
-    private long Id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     @Column(nullable = false)
     private String title;
-
-    @Column(length=2000)
+    @Column(length = 2000)
     private String content;
     @Column(nullable = false)
     private String author;
-    private LocalDateTime createdAt= LocalDateTime.now();
+    private LocalDateTime createdAt=LocalDateTime.now();
 
+    public Post(String title, String content, String author) {
+        this.title = title;
+        this.author=author;
+        this.content = content;
+    }
 }
-
