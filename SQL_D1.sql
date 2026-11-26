@@ -28,6 +28,8 @@
 -- add FOREIGN KEY (Dept_id) REFERENCES Department(Dept_id);
 
 -- ----------------------------------------------------------------------------------
+
+-- DDL task
 -- create database school_db;
 use school_db;
 
@@ -63,6 +65,7 @@ use school_db;
 
 -- create table student_backup as select * from students;
 
+-- DML task
 -- task1: insert
 
 
@@ -123,3 +126,67 @@ use school_db;
 
 -- delete from marks
 -- where score < 20;
+
+
+-- DQL task
+-- task 1: Filtering and sorting
+
+-- select * from students;
+
+-- select name as "Student Name", hometown from students;
+
+-- select * from students where age between 10 and 15;
+
+-- select * from students where name like 'A%';
+
+-- select * from students where hometown in ('Delhi', 'Noida') order by age desc;
+
+-- select * from students
+-- order by age desc
+-- limit 3;
+
+-- select distinct hometown from students;
+
+-- task 2: aggregates and joins
+
+-- select hometown, COUNT(*) as student_count
+-- from students
+-- group by hometown;
+
+-- select subject,
+-- AVG(score) as avg_score,
+-- MAX(score) as highest_score,
+-- MIN(score) as minimum_score
+-- from marks
+-- group by subject;
+
+-- select subject,
+-- AVG(score) as avg_score
+-- from marks
+-- group by subject
+-- having avg(score) >60;
+
+-- select s.name as student_name,
+-- m.subject,
+-- m.score
+-- from students s
+-- inner join marks m on s.student_id=m.student_id;
+
+-- select s.name as student_name,
+-- m.subject,
+-- m.score
+-- from students s
+-- left join marks m on s.student_id= m.student_id;
+
+-- select DISTINCT s.student_id, s.name
+-- from students s
+-- join marks m on s.student_id = m.student_id
+-- where m.score > (select avg(score) from marks);
+
+-- select s.student_id,
+-- s.name as student_name,
+-- COALESCE(sum(m.score), 0) as total_marks,
+-- rank() over (order by COALESCE(sum(m.score),0) desc) as rank_position
+-- from students s
+-- left join marks m on s.student_id = m.student_id
+-- group by s.student_id, s.name;
