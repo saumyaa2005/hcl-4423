@@ -183,6 +183,8 @@ use school_db;
 -- join marks m on s.student_id = m.student_id
 -- where m.score > (select avg(score) from marks);
 
+
+--
 -- select s.student_id,
 -- s.name as student_name,
 -- COALESCE(sum(m.score), 0) as total_marks,
